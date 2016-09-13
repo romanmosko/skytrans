@@ -1,0 +1,37 @@
+{
+  "name": "skytrans",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "styles:dev": "lessc --source-map-less-inline ./src/styles/page.less ./build/styles/bundle.css",
+    "html:dev": "cpx src/index.html ./build",
+    "build:dev": "run-p styles:dev html:dev",
+    "watch:styles": "onchange './src/styles/**/*.less' -- npm run styles:dev",
+    "watch:html": "onchange './src/index.html' -- npm run html:dev",
+    "watch:all": "run-p watch:styles watch:html live-server",
+    "live-server": "live-server build",
+    "serve-dev": "run-s build:dev watch:all"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/romanmosko/skytrans.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/romanmosko/skytrans/issues"
+  },
+  "homepage": "https://github.com/romanmosko/skytrans#readme",
+  "dependencies": {
+    "normalize.css": "^4.2.0"
+  },
+  "devDependencies": {
+    "cpx": "^1.5.0",
+    "less": "^2.7.1",
+    "less-plugin-autoprefix": "^1.5.1",
+    "live-server": "^1.1.0",
+    "npm-run-all": "^3.1.0",
+    "onchange": "^3.0.2"
+  }
+}
